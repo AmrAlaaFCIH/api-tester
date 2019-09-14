@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/api-tester/static/css/main.868d9a1a.chunk.css",
+    "main.js": "/api-tester/static/js/main.c5ab4f04.chunk.js",
+    "main.js.map": "/api-tester/static/js/main.c5ab4f04.chunk.js.map",
+    "runtime~main.js": "/api-tester/static/js/runtime~main.76396295.js",
+    "runtime~main.js.map": "/api-tester/static/js/runtime~main.76396295.js.map",
+    "static/css/2.463cf3df.chunk.css": "/api-tester/static/css/2.463cf3df.chunk.css",
+    "static/js/2.9e07a752.chunk.js": "/api-tester/static/js/2.9e07a752.chunk.js",
+    "static/js/2.9e07a752.chunk.js.map": "/api-tester/static/js/2.9e07a752.chunk.js.map",
+    "index.html": "/api-tester/index.html",
+    "precache-manifest.03c21eeda9bfb5713fb046d339f3c1c6.js": "/api-tester/precache-manifest.03c21eeda9bfb5713fb046d339f3c1c6.js",
+    "service-worker.js": "/api-tester/service-worker.js",
+    "static/css/2.463cf3df.chunk.css.map": "/api-tester/static/css/2.463cf3df.chunk.css.map",
+    "static/css/main.868d9a1a.chunk.css.map": "/api-tester/static/css/main.868d9a1a.chunk.css.map",
+    "static/media/rsuite-icon-font.woff": "/api-tester/static/media/rsuite-icon-font.0f274fa5.woff"
+  }
+}
