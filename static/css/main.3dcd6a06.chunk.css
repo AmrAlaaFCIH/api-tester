@@ -1,2 +1,374 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @font-face{font-family:rsuite-icon-font;src:url(/api-tester/static/media/rsuite-icon-font.0f274fa5.woff) format("woff")}body{font-family:Righteous,cursive!important}.navbar-brand{font-size:25px}.delete{padding:2px!important}.submit{padding:28px}.rs-loader-wrapper{display:flex!important;flex-direction:column;justify-content:center;align-items:center}.container-fluid{height:90vh}.container-fluid .row{height:100%}.container-fluid .row .col-md-6{overflow-x:hidden;overflow-y:auto}.container-fluid .row .col-md-6:first-child{position:relative}.container-fluid .row .col-md-6:first-child .headers{position:relative;width:98%;left:1%;top:1%}.container-fluid .row .col-md-6:first-child .json{width:98%;margin:10px auto}.container-fluid .row .col-md-6:nth-child(2) .object-content{width:100%}
 /*# sourceMappingURL=main.3dcd6a06.chunk.css.map */
+
+/* Global Style Overrides & Additions */
+body {
+  font-family: 'Inter', sans-serif !important; /* Override existing Righteous font */
+  background-color: #F8F9FA; /* Light gray page background */
+  color: #333333; /* Default text color */
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #999999 !important;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #999999 !important;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #999999 !important;
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #FFFFFF !important; /* Override Bootstrap light */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.navbar-brand {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600; /* SemiBold for brand */
+  color: #333333 !important;
+  font-size: 22px; /* Original was 25px, adjusted for new font */
+}
+
+/* RSuite Components in Navbar */
+.navbar .rs-input,
+.navbar .rs-picker-input .rs-input { /* For InputPicker's input part */
+  font-family: 'Inter', sans-serif;
+  border-radius: 4px;
+  border-color: #CED4DA;
+}
+.navbar .rs-input:focus,
+.navbar .rs-picker-input .rs-input:focus {
+  border-color: #5D7CAE;
+  box-shadow: 0 0 0 0.2rem rgba(93, 124, 174, 0.25); /* Focus shadow */
+}
+
+.navbar .rs-picker-toggle.rs-btn { /* General styling for picker toggle */
+  font-family: 'Inter', sans-serif;
+  border-radius: 4px;
+  border-color: #CED4DA;
+}
+
+.navbar .rs-picker-toggle.rs-btn-default { /* Specific for default appearance picker toggle */
+    background-color: #FFFFFF;
+    border-color: #CED4DA;
+    color: #333333;
+}
+.navbar .rs-picker-toggle.rs-btn-default:hover,
+.navbar .rs-picker-toggle.rs-btn-default:focus,
+.navbar .rs-picker-toggle.rs-btn-default:active {
+    border-color: #5D7CAE;
+    color: #5D7CAE; /* Change text color on hover/focus too */
+    background-color: #F8F9FA; /* Slight background change */
+}
+
+/* RSuite Button in Navbar */
+.navbar .rs-btn { /* General reset for any rsuite buttons in navbar */
+  font-family: 'Inter', sans-serif;
+  border-radius: 4px;
+  padding: 6px 12px; /* Adjust padding */
+  line-height: 1.5; /* Ensure text is vertically centered well */
+}
+
+.navbar .rs-btn-blue { /* Specifically for the blue "GET/POST/..." button */
+  background-color: #5D7CAE !important; /* Primary color */
+  color: #FFFFFF !important;
+  border-color: #5D7CAE !important;
+}
+.navbar .rs-btn-blue:hover,
+.navbar .rs-btn-blue:focus {
+  background-color: #4A6B9B !important; /* Darker shade for hover/focus */
+  border-color: #4A6B9B !important;
+}
+.navbar .rs-btn-blue:active {
+  background-color: #3E5A85 !important; /* Even darker for active */
+  border-color: #3E5A85 !important;
+}
+
+/* Ensure NavItem alignment is not broken if they contain these rsuite elements */
+.navbar .nav-item {
+    display: flex;
+    align-items: center; /* Vertically align items if they are different heights */
+}
+.navbar .nav-item .rs-input-group, /* RSuite Input is often wrapped in InputGroup */
+.navbar .nav-item .rs-picker {
+    margin-left: 0.5rem;
+}
+.navbar .nav-item:first-child .rs-input-group,
+.navbar .nav-item:first-child .rs-picker {
+    margin-left: 0;
+}
+
+/* Card Styling for Main Content Area */
+.main-content .card { /* Assuming a .main-content wrapper class will be added or exists, or apply to .card generally */
+  border: 1px solid #DEE2E6;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-bottom: 1.5rem;
+}
+
+/* Specifically target cards within the known structure of Main.js if .main-content is not used */
+.container-fluid .row .col-md-6 .card {
+  border: 1px solid #DEE2E6;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  margin-bottom: 1.5rem;
+}
+
+.container-fluid .row .col-md-6 .card .card-title p, /* Targeting the <p> used as title */
+.container-fluid .row .col-md-6 .card .card-body > p:first-child { /* Or first <p> in card-body if it's the title */
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem; /* Was 25px, making it more standard */
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+/* Additional Global Styles & Overrides */
+
+/* Subtle Scrollbar Styling (for Webkit browsers) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #EFF2F5; /* Slightly lighter than F0F0F0 to match page bg */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #BCC1C9; /* A muted gray, good contrast on light track */
+  border-radius: 4px;
+  border: 2px solid #EFF2F5; /* Padding around thumb, matches track background */
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #A4ABB3; /* Darker on hover */
+}
+
+/* General Link Styling */
+a, a:link {
+  color: #5D7CAE; /* Primary color */
+  text-decoration: none;
+}
+a:hover, a:focus { /* Added focus state for accessibility */
+  color: #4A6B9B; /* Darker shade */
+  text-decoration: underline;
+}
+
+/* Text Selection Styling */
+::selection {
+  background-color: #5D7CAE; /* Primary color for selection background */
+  color: #FFFFFF; /* White text for selection */
+}
+::-moz-selection { /* Firefox */
+  background-color: #5D7CAE;
+  color: #FFFFFF;
+}
+
+/* Ensure Bootstrap container-fluid is not overly constrained if it's an issue */
+/* .container-fluid { */
+  /* The existing style 'height: 90vh' might be fine, depends on desired layout */
+  /* padding-left: 1rem; */ /* Example: if more space is needed from screen edges */
+  /* padding-right: 1rem; */
+/* } */
+
+/* Address any potential !important conflicts if seen during testing */
+/* For example, if .delete padding was still an issue: */
+/* .headers .table td.delete { padding: 0.75rem !important; } */
+/* This is commented out as it should be handled by previous td styling. */
+
+/* Output/Response Section Styling */
+
+/* Styling for ReactJson component */
+.react-json-view { /* Default class for the component's container */
+    font-family: 'Inter', Menlo, Monaco, Consolas, "Courier New", monospace !important;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    background-color: #FFFFFF !important;
+    border: 1px solid #DEE2E6;
+    border-radius: 4px;
+    padding: 1rem;
+    color: #333333;
+    margin-top: 1rem; /* Add some space if it's directly after other elements */
+}
+
+.react-json-view .object-key,
+.react-json-view .array-key {
+    font-weight: 500;
+    color: #5D7CAE !important; /* Primary color for keys */
+}
+
+.react-json-view .string-value {
+    color: #008000 !important; /* Changed to a more standard green for strings */
+}
+
+.react-json-view .boolean-value {
+    color: #FF8C00 !important; /* DarkOrange for booleans */
+}
+
+.react-json-view .number-value {
+    color: #1E90FF !important; /* DodgerBlue for numbers */
+}
+
+.react-json-view .null-value {
+    color: #9E9E9E !important; /* Gray for nulls */
+}
+
+.react-json-view .data-type-label {
+    color: #999999 !important;
+    font-style: italic;
+    font-family: 'Inter', sans-serif !important; /* Ensure this also uses Inter */
+}
+
+.react-json-view .collapsed-icon svg, /* Targeting SVG within for better control */
+.react-json-view .expanded-icon svg { /* Targeting SVG within for better control */
+    fill: #777777 !important; /* Adjust expand/collapse icon colors */
+}
+
+.react-json-view > div { /* Often the direct child is the main content view */
+    background-color: transparent !important;
+    font-family: inherit !important; /* Ensure font propagates */
+}
+
+/* Styling for RSuite Loader */
+/* The existing .rs-loader-wrapper styles are fine. */
+.rs-loader-wrapper .rs-loader-spin:before {
+    border-color: #5D7CAE #5D7CAE #5D7CAE transparent !important; /* Primary color for spinner */
+}
+.rs-loader-wrapper .rs-loader-title {
+    font-family: 'Inter', sans-serif !important; /* Ensure Inter font */
+    color: #555555;
+    font-size: 1rem;
+    margin-top: 0.5rem; /* Add some space between spinner and text */
+}
+
+/* Styling for RSuite Alerts (Notifications) */
+.rs-notification {
+    font-family: 'Inter', sans-serif !important; /* Ensure all text within uses Inter */
+    border-radius: 4px;
+    /* RSuite default error styling is generally good. These are fallback/fine-tuning. */
+}
+
+.rs-notification-error { /* Targeting the error type notification */
+    /* Example: If you need to force a border or specific background */
+    /* border-left: 4px solid #D32F2F !important; */ /* A strong error red border */
+    /* background-color: #FFEBEE !important; */ /* A very light red background */
+}
+
+.rs-notification-error .rs-notification-item-title,
+.rs-notification-error .rs-notification-item-description {
+    font-family: 'Inter', sans-serif !important;
+    /* color: #BF360C !important; */ /* Darker error text if needed */
+}
+
+/* Ensure the container for the response/loader has appropriate styling */
+/* This targets the column where ReactJson or Loader appears */
+.container-fluid .row .col-md-6:nth-child(2) {
+    /* This already has overflow-x:hidden; overflow-y:auto from existing CSS */
+    /* Add padding if needed, but usually the component itself (ReactJson) should have it */
+}
+
+.container-fluid .row .col-md-6 .card .card-body {
+  padding: 1.25rem;
+}
+
+/* Request Headers Section Styling */
+.headers .form-control { /* .form-control is class reactstrap Input uses */
+  font-family: 'Inter', sans-serif;
+  border-radius: 4px;
+  border-color: #CED4DA;
+  color: #333333;
+}
+.headers .form-control:focus {
+  border-color: #5D7CAE;
+  box-shadow: 0 0 0 0.2rem rgba(93, 124, 174, 0.25);
+}
+.headers .form-label, /* For <Label> elements */
+.headers label { /* General label styling */
+    font-family: 'Inter', sans-serif;
+    font-weight: 500; /* Medium weight for labels */
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+/* "Add" Button in Headers Section */
+.headers .submit .btn { /* Target the Add button */
+    font-family: 'Inter', sans-serif;
+    border-radius: 4px;
+    padding: 0.375rem 0.75rem;
+    font-weight: 500;
+    background-color: #5D7CAE;
+    border-color: #5D7CAE;
+    color: #FFFFFF;
+}
+.headers .submit .btn:hover {
+    background-color: #4A6B9B;
+    border-color: #4A6B9B;
+}
+
+/* Headers Table Styling */
+.headers .table {
+  font-family: 'Inter', sans-serif;
+  color: #333333;
+  margin-top: 1rem;
+}
+.headers .table th {
+  font-weight: 600;
+  color: #212529;
+  background-color: #F8F9FA;
+  border-bottom-width: 2px;
+  border-color: #DEE2E6;
+  padding: 0.75rem;
+}
+.headers .table td {
+  vertical-align: middle;
+  border-color: #E9ECEF;
+  padding: 0.75rem;
+}
+
+/* "Remove" button in Headers Table */
+.headers .table .delete .btn { /* .delete is on the <td> */
+  background-color: transparent;
+  color: #DC3545; /* Error/remove color */
+  border: 1px solid transparent; /* Keep it minimal */
+  padding: 0.25rem 0.5rem; /* Small padding */
+  font-weight: 500;
+}
+.headers .table .delete .btn:hover {
+  background-color: rgba(220, 53, 69, 0.1); /* Light red background on hover */
+  border-color: transparent; /* No border change on hover, or a very subtle one */
+  color: #721C24; /* Darker red text */
+}
+
+/* JSON Body Section - Card styling is covered by general card rules */
+/* Styling for the container of react-json-editor-ajrm */
+.json .card-body div[id^='json-editor-'], /* react-json-editor-ajrm usually creates an id like "json-editor-<random>" */
+.json .card-body div[class*="outer-box"],
+.json .card-body div[class*="container"] { /* General targeting for the editor's wrapper */
+    border: 1px solid #DEE2E6;
+    border-radius: 4px;
+    /* The editor's internal dark theme is set by JS props (colors).
+       CSS cannot easily override this without knowing very specific internal selectors.
+       The best we can do is style its immediate container if it doesn't have its own border.
+       If the editor component itself (JSONInput) creates a bordered element, this rule might not be needed
+       or might create a double border. The current JSONInput has its own theme.
+       Let's ensure the card it's in looks good.
+    */
+}
+
+/* Ensure the specific structure of Main.js is targeted for card titles */
+/* This selector targets the <p style="fontSize: 25px"> within the card body for Headers and JSON Body */
+.container-fluid .row .col-md-6 .headers .card .card-body > p:first-child,
+.container-fluid .row .col-md-6 .json .card .card-body > p:first-child {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem; /* Overriding inline 25px */
+  margin-bottom: 1rem;
+  color: #333333;
+}
